@@ -79,5 +79,7 @@ update(day)
 day.on_changed(update)
 
 ax.legend(handles=[l, b])
+wm = plt.get_current_fig_manager()
+wm.window.state('zoomed')
 plt.show()
 
