@@ -37,11 +37,11 @@ def update(val):
         ax2.set_yticks(np.arange(0, 0.1, 0.1))
         ax2.set_ylim([0 - 0.1, 0.1 + 0.1])
     else:
-        ax2.set_yticks(np.arange(min(z), max(z), (max(z) - min(z)) / 12))
+        ax2.set_yticks(np.arange(min(z), max(z), (max(z) - min(z)) / 6))
         ax2.set_ylim([min(z) - 0.1, max(z) + 0.1])
 
     # saving images (need to change False -> True)
-    save_data = False
+    save_data = True
     if save_data:
         plt.savefig(f'weather{day.val}.jpg')
 
@@ -83,6 +83,5 @@ update(day)
 day.on_changed(update)
 
 ax.legend(handles=[l, b])
-wm = plt.get_current_fig_manager()
-wm.window.state('zoomed')
+fig.set_size_inches(10, 7, forward=True)
 plt.show()
